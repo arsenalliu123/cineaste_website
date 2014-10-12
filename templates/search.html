@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    {% load staticfiles %}
+    <title>Cineaste | {{ u.name }}</title>
+    <!-- Bootstrap core CSS -->
+    <link href="{% static "css/bootstrap.min.css" %}" rel="stylesheet">
+    <!-- Customed CSS-->
+    <link href="{% static "css/cineaste.css" %}" rel="stylesheet">
+	<link href="{% static "css/ui.totop.css" %}" rel="stylesheet">
+  </head>
+  <body class="search-body">
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="container search-container clearfix">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" id="navbrand" href="/"><img src="{% static "img/small_logo.png" %}"></a>
+            </div>
+            <div class="form-inline navbar-right">
+                <input type="text" name="q" class="form-control form-search" placeholder="豆瓣主页名：如www.douban.com/people/47600779/中的47600779" autofocus>
+                <button class="btn btn-primary form-button button-search" disabled="disabled">Cineaste!</button>
+                </div>
+        </div>
+    </div>
+    <div class="container search-container clearfix">
+        <div class="jumbotron center-things" id="myjumbotron">
+			<a href="http://www.douban.com/people/{{ u.name }}/">
+				<img src={{ u.avatar }}>
+            </a>
+            <h2>{{ u.name }}</h2>
+            <p>{{ u.signi }}</p>
+			<a class="btn btn-lg btn-success" href="http://www.douban.com/people/{{ u.name }}/" target="view_window">豆瓣主页</a>
+        </div>
+        <div class="recommend-page">
+            <div class="block">
+				<h2 class="upper">推荐的: (预测评分降序排列，准确度{{ ra }})</h2>
+                    {% if rcount %}
+                        {% for m in rlist %}
+                        {% if forloop.counter0|divisibleby:"6" %}
+						<div class="row">
+						{% endif %}
+							<div class="col-xs-2">
+								<div class="hover_img posters">
+									<a href="http://movie.douban.com/subject/{{ m.id }}" target="_blank">
+										<div class="square">
+											<img class="lazy" data-original={{ m.poster }} class="img-rounded" alt="" style="opacity: 1;">
+										</div>
+										<p>{{ m.name }}<br>{{ m.year }}</p>
+									</a>
+								</div>
+							</div>
+						{% if forloop.last or forloop.counter|divisibleby:"6" %}
+						</div>
+						{% endif %}
+                        {% endfor %}
+                    {% else %}
+                        <h1 class="text-center">
+							你评的高分电影太少
+							<br>或者我的训练集太小
+							<br>总之没啥好推荐的
+						</h1>
+                    {% endif %}
+            </div>
+            <hr>
+            <div class="block">
+				<h2 class="upper">不推荐的: (预测评分升序排列，准确度{{ na }})</h2>
+                    {% if ncount %}
+						{% for m in nlist %}
+						{% if forloop.counter0|divisibleby:"6" %}
+						<div class="row">
+						{% endif %}
+							<div class="col-xs-2">
+								<div class="hover_img posters">
+									<a href="http://movie.douban.com/subject/{{ m.id }}" target="_blank">
+										<div class="square">
+											<img class="lazy" data-original={{ m.poster }} class="img-rounded" style="opacity: 1;" >
+										</div>
+										<p>{{ m.name }}<br>{{ m.year }}</p>
+									</a>
+								</div>
+							</div>
+						{% if forloop.last or forloop.counter|divisibleby:"6" %}
+						</div>
+						{% endif %}
+						{% endfor %}
+                    {% else %}
+                        <h1 class="text-center">
+							你评的低分电影太少
+							<br>或者我的训练集太小
+							<br>总之没啥不推荐的
+						</h1>
+                    {% endif %}
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <div class="container search-container">
+            <h4 class="text-muted footer-text pull-right">Based on the <a href="http://f3.tiera.ru/2/Cs_Computer%20science/CsLn_Lecture%20notes/Algorithmic%20Aspects%20in%20Information%20and%20Management,%204%20conf.,%20AAIM%202008(LNCS5034,%20Springer,%202008)(ISBN%209783540688655)(359s)_CsLn_.pdf#page=346" target="_blank">Algorithm</a> Written By Yunhong Zhou et al.</h4>
+            <h4 class="text-muted footer-text">Designed and Created By <a href="http://www.weibo.com/shadowof22" target="_blank">River</a>.</h4>
+        </div>
+    </div>
+    <script type="text/javascript" src="{% static "js/jquery.min.js" %}"></script>
+    <script type="text/javascript" src="{% static "js/myjs.js" %}"></script>
+	<script type="text/javascript" src="{% static "js/jquery.lazyload.min.js" %}"></script>
+	<script type="text/javascript" src="{% static "js/jquery.ui.totop.js" %}"></script>
+	<script type="text/javascript" src="{% static "js/easing.js" %}"></script>
+	<script type="text/javascript">
+		$(function() {
+			$().UItoTop({ easingType: 'easeOutQuart' });
+            $("img").error(function(){
+                alert("yes")
+                $(this).attr("data-original", "{{ m.poster }}");
+            });
+            $("img.lazy").lazyload({
+                effect : "fadeIn"
+            });
+		});
+	</script>
+  </body>

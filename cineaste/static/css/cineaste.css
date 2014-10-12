@@ -1,0 +1,163 @@
+body
+{
+  min-width:960px;
+  min-height:500px;
+  width:100%;
+  height:100%;
+  font:14px/1.6 "Helvetica Neue",Arial,"Microsoft Yahei",sans-serif;
+  padding-top: 70px;
+}
+.index-body
+{
+  background: url("../img/home_bg.jpg") no-repeat #f4f4f4;
+  background-size:cover;
+}
+.search-body
+{
+  background: repeat #804037 fixed;
+  background-size:cover;
+}
+.form-signin {
+  width: 70%;
+  left: 15%;
+  top: 30%;
+  position: absolute;
+}
+.search-container{
+  max-width: 900px;
+}
+.recommend-page{
+  background: rgb(255, 255, 255);
+  background: rgba(255, 255, 255, 0.8);
+  background: transparent\9;
+  zoom: 1;
+  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#ccffffff, endColorstr=#ccffffff);
+  -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#ccffffff, endColorstr=#ccffffff)";
+  border-radius: 50px;
+}
+.form-signin .form-signin-heading,
+.form-signin .checkbox {
+  color: #4d0b02
+}
+.form-signin-heading{
+  text-align: center;
+}
+.form-signin .checkbox {
+  font-weight: normal;
+}
+.form-signin .form-control .form-button {
+  position: relative;
+  font-size: 16px;
+  height: auto;
+  padding: 10px;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+.form-signin .form-control:focus {
+  z-index: 2;
+}
+.form-signin input[type="text"] {
+  margin-bottom: 10px;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+.btn-lg{
+  font-size: 25px;
+}
+.form-button{
+  background-color: #4d0b02;
+  border-color: #520701 ;
+  padding: 5px;
+  font-style: italic;
+}
+.form-button:hover{
+  background-color: #000;
+  border-color: #420406;
+}
+.form-button:active{
+  background-color: #000;
+  border-color: #420406;
+}
+.form-button:focus{
+  background-color: #000;
+  border-color: #420406;
+  outline-color: #CC7C7F;
+}
+.form-button[disabled]{
+  background-color: #949697;
+  border-color: #9F9FA0;
+}
+.form-button[disabled]:hover{
+  background-color: #949697;
+  border-color: #9F9FA0;
+}
+.form-control:focus {
+  border-color: #c0210b;
+}
+.form-pic{
+  margin-bottom: 20px;
+}
+#navbrand{
+  color: #4d0b02;
+  font-style: italic;
+}
+.form-search{
+  width:600px;
+  margin-top: 10px;
+  margin-right: 15px;
+}
+.button-search{
+  width: 100px;
+  margin-top: 10px;
+}
+.navbar-brand{
+  padding: 10px 10px;
+}
+.center-things{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+#myjumbotron{
+  text-align: center;
+  border-radius: 50px;
+  width: 60%;
+}
+#jumb{
+  text-align: center;
+  border-radius: 50px;
+  width: 80%;
+}
+
+.block{
+  padding: 20px 20px;
+  margin-bottom: 12px;
+}
+.upper{
+  margin-bottom: 20px;
+}
+.posters{
+  text-align: center;
+}
+a:hover{
+  text-decoration: none;
+}
+.square{
+  height: 170px;
+}
+.footer{
+  height: 60px;
+  background-color: #000;
+}
+.footer-text{
+  margin: 20px 0;
+}
+.navbar{
+  background: rgb(255, 255, 255);
+  background: rgba(255, 255, 255, 0.8);
+  background: transparent\9;
+  zoom: 1;
+  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#ccffffff, endColorstr=#ccffffff);
+  -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#ccffffff, endColorstr=#ccffffff)";
+}

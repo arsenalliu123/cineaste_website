@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    {% if is_index %}
+    <title>Cineaste | 唯电影不可欺</title>
+    {% endif %}
+    {% load staticfiles %}
+    <link href="{% static "css/bootstrap.min.css" %}" rel="stylesheet">
+    <link href="{% static "css/cineaste.css" %}" rel="stylesheet">
+  </head>
+
+  <body class="index-body">
+
+    <div class="container">
+      <div class="form-signin">
+		    <h2 class="form-signin-heading">
+				<img class='form-pic' src="{% static "img/logo.png" %}">
+		    </h2>
+        <div class="row">
+          <div class="col-xs-10">
+            <input type="text" name="q" class="form-control input-lg" placeholder="豆瓣主页名：如www.douban.com/people/47600779/中的47600779" autofocus>
+          </div>
+          <div class="col-xs-2">
+            <button class="btn-lg btn-primary btn-block form-button" disabled="disabled" type="submit">Cineaste !</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script type="text/javascript" src="{% static "js/jquery.min.js" %}"></script>
+    <script type="text/javascript" src="{% static "js/bootstrap.min.js" %}"></script>
+    <script type="text/javascript" src="{% static "js/myjs.js" %}"></script>
+  </body>
+</html>
